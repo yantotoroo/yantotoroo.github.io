@@ -3,161 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curriculum Vitae - Aryanti Puspita Sari</title>
+    <title>Kalkulator Sederhana</title>
     <style>
-        body {
-            font-family: Garamond, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            color: #5b5b5b;
-            background-color: #333;
-        }
-
-        header{
-            background-color: rgba(85, 205, 159, 0.868);
-            color: white;
+        body{
             text-align: center;
-            padding: 1rem 0;
+            display: flex;
+            background-color: #f4f4f4;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
         }
-        main {
-            max-width: 800px;
-            margin: 20px auto;
+        .calculator{
+            background: rgb(90, 133, 160);
             padding: 20px;
-            border: 1px solid #ddd;
-            border-radius:8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            background-color: #444;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            border:3px solid black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
         }
-        img{
-            display: block;
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        a {
-            color: white;
-        }
-        a:hover{
-            text-decoration: underline;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        .section {
-            margin-bottom: 20px;
-            color: white;
-        }
-        .section h2 {
-            border-bottom: 2px solid #4CAF50;
-            padding-bottom: 5px;
+        .screen{
+            width: 100%;
+            max-width: 260px;
+            height: 60px;
+            background: #fff;
+            text-align: right;
+            padding: 5px;
+            font-size: 1.5em;
+            border-radius: 5px;
             margin-bottom: 10px;
-            color: #4CAF50;
+            margin-left: 5px;
+            border: 2px solid black;
+            box-sizing: border-box;
         }
+        table{
+            width: 100%;
+            border-spacing: 10px;
+        }
+        td {
+            width: 25%;
+        }
+        button {
+            width: 100%;
+            height: 50px;
+            font-size: 1.5em;
+            border: 2px solid black;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button.operator { background: rgb(71, 75, 81); color: white; }
+        button.equal { background: rgb(5, 210, 5); color: white; height: 265px;}
+        button.clear { background: red; color: white; }
+        button.number { background: lightgray; }
+        button:hover { opacity: 0.8; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Aryanti Puspita Sari</h1>
-        <p><strong>Information System | Brawijaya University</strong></p>
-        <img src="poto gweh.jpg" alt="Profile Picture" width="200" height="200">
-    </header>
+    <div class="calculator">
+        <div class="screen" id="screen">0</div>
+        <table>
+            <tr>
+                <td><button class="operator" onclick="pressOperator('+')">+</button></td>
+                <td><button class="operator" onclick="pressOperator('-')">-</button></td>
+                <td><button class="operator" onclick="pressOperator('*')">×</button></td>
+                <td><button class="operator" onclick="pressOperator('/')">÷</button></td>
+            </tr>
+            <tr>
+                <td><button class="number" onclick="pressNumber(7)">7</button></td>
+                <td><button class="number" onclick="pressNumber(8)">8</button></td>
+                <td><button class="number" onclick="pressNumber(9)">9</button></td>
+                <td rowspan="4"><button class="equal" onclick="calculate()">=</button></td>
+            </tr>
+            <tr>
+                <td><button class="number" onclick="pressNumber(4)">4</button></td>
+                <td><button class="number" onclick="pressNumber(5)">5</button></td>
+                <td><button class="number" onclick="pressNumber(6)">6</button></td>
+            </tr>
+            <tr>
+                <td><button class="number" onclick="pressNumber(1)">1</button></td>
+                <td><button class="number" onclick="pressNumber(2)">2</button></td>
+                <td><button class="number" onclick="pressNumber(3)">3</button></td>
+            </tr>
+            <tr>
+                <td><button class="number" onclick="pressNumber(0)">0</button></td>
+                <td><button class="number" onclick="pressDot()">.</button></td>
+                <td><button class="clear" onclick="clearScreen()">C</button></td>
+            </tr>
+        </table>
+    </div>
 
-    <main>
-        <div class="section">
-            <h2>About Me</h2>
-            <p>Currently a freshman majoring in Information Systems at Universitas Brawijaya. I am eager to participate in various competitions related to my field of study and join organizations focused on humanitarian and social causes.</p>
-        </div>
-
-        <hr>
-
-        <div class="section">
-            <h2>Personal Information</h2>
-            <table>
-                <tr>
-                    <td><strong>Email:</strong></td>
-                    <td><a href="mailto:aryantisari@student.ub.ac.id">aryantisari@student.ub.ac.id</a></td>
-                </tr>
-                <tr>
-                    <td><strong>Phone:</strong></td>
-                    <td><a href="tel:+6281384857339">+62 813-8485-7339</a></td>
-                </tr>
-                <tr>
-                    <td><strong>Address:</strong></td>
-                    <td>
-                        <a href="https://maps.app.goo.gl/yV6Nm7YkVpNXiNxv5" target="_blank">PBI Araya, Blimbing, Malang</a>
-                        <br>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d399.9066169227747!2d112.65487136549169!3d-7.938812497737406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1740561129774!5m2!1sid!2sid" width="450" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                        <img src="maps.jpg" alt="ini alamat ku, mana alamat mu" width="200" height="200">
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-        <hr>
-
-        <div class="section">
-            <h2>Education</h2>
-            <ul>
-                <li><strong>SMAN 1 CILEGON</strong> (2020-2023) - Major in Science
-                    <ul>
-                        <li>Secretary in grade 12: Maintained student and teacher attendance records</li>
-                        <li>Relevant subjects: Mathematics, Physics, Sports</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <hr>
-
-        <div class="section">
-            <h2>Experience</h2>
-            <ul>
-                <li><strong>Business Fund Coordinator</strong> - Pelajar Mendunia Organization (2021)
-                    <ul>
-                        <li>Led a team of 3 members in coordinating sponsorships with companies and agencies.</li>
-                        <li>Ran paid promotions to support funding efforts.</li>
-                        <li>Distributed sponsorship proposals to government agencies and companies.</li>
-                    </ul>
-                </li>
-                <br>
-                <li><strong>Environmental Volunteer</strong> - Misi Seribu Pulau (2022)
-                    <ul>
-                        <li>Educated children about waste types and sorting.</li>
-                        <li>Learned about local flora and fauna.</li>
-                        <li>Helped clean up beaches and taught children crafts from recycled materials.</li>
-                    </ul>
-                </li>
-                <br>
-                <li><strong>Internship</strong> - K-RISMA (2024)
-                    <ul>
-                        <li>Participated in scientific paper writing training.</li>
-                        <li>Competed in a scientific writing competition.</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <hr>
-
-        <div class="section">
-            <h2>Skills</h2>
-            <ul>
-                <li>Google Suite: Docs, Sheets</li>
-                <li>Languages: Indonesian (Native), English (Intermediate)</li>
-                <li>Canva</li>
-            </ul>
-        </div>
-
-        <hr>
-
-        <div class="section">
-            <h2>Social Media</h2>
-            <ul>
-                <li><a href="https://www.linkedin.com/in/aryanti-puspitasari-755967280" target="_blank">LinkedIn</a></li>
-                <li><a href="https://instagram.com/aryantisari02" target="_blank">Instagram</a></li>
-            </ul>
-        </div>
-    </main>
+    <script>
+        let expression = "";
+        function pressNumber(num) {
+            expression += num;
+            updateScreen();
+        }
+        function pressOperator(op) {
+            expression += " " + op + " ";
+            updateScreen();
+        }
+        function pressDot() {
+            if (!expression.endsWith('.')) {
+                expression += '.';
+                updateScreen();
+            }
+        }
+        function clearScreen() {
+            expression = "";
+            updateScreen();
+        }
+        function calculate() {
+            try {
+                expression = eval(expression).toString();
+            } catch {
+                expression = "Error";
+            }
+            updateScreen();
+        }
+        function updateScreen() {
+            document.getElementById("screen").textContent = expression || "0";
+        }
+    </script>
 </body>
 </html>
